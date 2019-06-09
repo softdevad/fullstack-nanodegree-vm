@@ -30,6 +30,17 @@ class MenuItem(Base):
     # value in order for the row to be created.
     # "primary_key=True" indicates a value we can use to identify
 
+    @property
+    def serialize(self):
+        #Returns object data in easily serializeable format
+        return {
+            'name': self.name,
+            'description': self.description,
+            'id': self.id,
+            'price': self.price,
+            'course': self.course
+        }
+
 ##### insert at end of file #####
 engine = create_engine(
 'sqlite:///restaurantmenu.db'
