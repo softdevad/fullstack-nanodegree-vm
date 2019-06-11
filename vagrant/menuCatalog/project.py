@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -97,5 +98,6 @@ def deleteMenuItem(restaurant_id, menu_id):
         return render_template('deletemenuitem.html', item=itemToDelete)
 
 if __name__=='__main__':
+    app.secret_key = 'super secret key'
     app.debug=True
     app.run(host='0.0.0.0', port=5000)
